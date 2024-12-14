@@ -12,13 +12,13 @@ final class TabBarCoordinator: CompositionCoordinator {
     let firstTabCoordinator = FirstTabCoordinator()
     let secondTabCoordinator = SecondTabCoordinator()
     
-    enum Tab {
+    enum TabItem {
         case firstTab
         case secondTab
     }
 
-    @Published var activeTab = Tab.firstTab
-    
+    @Published var activeTab = TabItem.firstTab
+
     var rootView: some View {
         TabBarView(coordinator: self)
     }
@@ -37,7 +37,7 @@ final class TabBarCoordinator: CompositionCoordinator {
         print("Deinit TabBarCoordinator")
     }
     
-    func setCurrentTab(_ tab: Tab) {
+    func setCurrentTab(_ tab: TabItem) {
         activeTab = tab
     }
     
